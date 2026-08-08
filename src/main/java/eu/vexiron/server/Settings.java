@@ -2,13 +2,15 @@ package eu.vexiron.server;
 
 public final class Settings {
 
-    private boolean dataSaving = true;
+    private static boolean dataSaving = true;
 
-    public boolean isDataSaving() {
+    Settings() {}
+
+    public static boolean isDataSaving() {
         return dataSaving;
     }
 
-    public void setDataSaving(boolean dataSaving) {
-        this.dataSaving = dataSaving;
+    public static void setDataSaving(boolean enabled) {
+        dataSaving = enabled;
     }
 }

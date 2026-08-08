@@ -18,13 +18,9 @@ public final class TabList {
             .build();
 
     TabList() {
-        MinecraftServer.getGlobalEventHandler().addListener(PlayerSpawnEvent.class, event -> {
-            updateAll();
-        });
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerSpawnEvent.class, _ -> updateAll());
 
-        MinecraftServer.getGlobalEventHandler().addListener(PlayerDisconnectEvent.class, event -> {
-            MinecraftServer.getSchedulerManager().scheduleNextTick(this::updateAll);
-        });
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerDisconnectEvent.class, _ -> MinecraftServer.getSchedulerManager().scheduleNextTick(this::updateAll));
     }
 
     private Component buildFooter() {
@@ -40,8 +36,6 @@ public final class TabList {
 
     private void updateAll() {
         Component footer = buildFooter();
-        MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(player -> {
-            player.sendPlayerListHeaderAndFooter(HEADER, footer);
-        });
+        MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(player -> player.sendPlayerListHeaderAndFooter(HEADER, footer));
     }
 }

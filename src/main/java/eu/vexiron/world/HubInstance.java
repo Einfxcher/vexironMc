@@ -17,9 +17,7 @@ public final class HubInstance {
     public HubInstance() {
         this.instance = MinecraftServer.getInstanceManager().createInstanceContainer();
         this.instance.setChunkSupplier(LightingChunk::new);
-        this.instance.setGenerator(unit -> {
-            unit.modifier().fillHeight(63, 64, Block.GRAY_STAINED_GLASS);
-        });
+        this.instance.setGenerator(unit -> unit.modifier().fillHeight(63, 64, Block.GRAY_STAINED_GLASS));
 
         List<CompletableFuture<Chunk>> futures = new ArrayList<>();
         for (int x = -8; x <= 8; x++) {
