@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Minecraft-1.21-brightgreen" alt="Minecraft Version">
+  <img src="https://img.shields.io/badge/Minecraft-26.2-brightgreen" alt="Minecraft Version">
   <img src="https://img.shields.io/badge/Java-25-orange" alt="Java Version">
   <img src="https://img.shields.io/badge/Status-In%20Development-yellow" alt="Status">
   <img src="https://img.shields.io/badge/Built%20With-Minestom-blue" alt="Built With Minestom">
