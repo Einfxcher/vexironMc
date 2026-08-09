@@ -30,13 +30,12 @@ No Bukkit, no Spigot — built from scratch for full technical control and a uni
 ### Core
 - [x] Base server setup (MOTD, tab, world, settings)
 - [x] Commands framework
-- [ ] Permission system
-- [ ] Configuration system
+- [x] Permission system
 - [ ] Database integration
 
 ### Player Systems
 - [ ] Player profiles
-- [ ] Rank system
+- [x] Rank system
 - [ ] Economy
 - [ ] Cosmetics
 
