@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("com.gradleup.shadow") version "8.3.8"
+    id("com.gradleup.shadow") version "9.5.0"
 }
 
 group = "eu.vexiron"
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("net.minestom:minestom:2026.07.22-26.2")
+    implementation("net.minestom:minestom:2026.08.07-26.2")
     implementation("ch.qos.logback:logback-classic:1.6.1")
     implementation("com.google.code.gson:gson:2.11.0")
 }
