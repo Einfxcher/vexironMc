@@ -13,7 +13,7 @@ import net.minestom.server.timer.TaskSchedule;
 public class RestartCommand extends Command {
 
     public RestartCommand() {
-        super("restart", "reboot");
+        super("restart");
 
         setDefaultExecutor((sender, _) -> {
             Feedback.success(sender, "Server restarting in 5 seconds...");

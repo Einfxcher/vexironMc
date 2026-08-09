@@ -5,7 +5,6 @@ import eu.vexiron.server.Settings;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
-import net.minestom.server.command.ConsoleSender;
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.entity.Player;
 import net.minestom.server.instance.Instance;
@@ -14,8 +13,7 @@ import net.minestom.server.timer.TaskSchedule;
 public class StopCommand extends Command {
 
     public StopCommand() {
-        super("stop", "shutdown");
-
+        super("stop");
 
         setDefaultExecutor((sender, context) -> {
             Feedback.success(sender, "Server stopping in 5 seconds...");
