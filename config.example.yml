@@ -1,0 +1,11 @@
+brand: Vexiron
+dataSaving: true
+database:
+  host: localhost
+  port: 5432
+  name: vexiron
+  user: vexiron
+  password: your_password_lol
+host: 0.0.0.0
+maxPlayers: 2026
+port: 25565
