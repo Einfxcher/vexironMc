@@ -3,6 +3,7 @@ package eu.vexiron;
 import eu.vexiron.command.CommandProvider;
 import eu.vexiron.config.Config;
 import eu.vexiron.config.ConfigProvider;
+import eu.vexiron.database.DatabaseProvider;
 import eu.vexiron.listener.ListenerProvider;
 import eu.vexiron.rank.RankProvider;
 import eu.vexiron.server.Motd;
@@ -14,7 +15,6 @@ import net.minestom.server.MinecraftServer;
 public final class Main {
 
     static void main() {
-
         ConfigProvider configProvider = new ConfigProvider();
         Config config = configProvider.get();
 
@@ -23,6 +23,7 @@ public final class Main {
 
         Settings.setDataSaving(config.dataSaving);
 
+        DatabaseProvider database = new DatabaseProvider(config);
         InstanceProvider instances = new InstanceProvider();
         RankProvider ranks = new RankProvider();
 

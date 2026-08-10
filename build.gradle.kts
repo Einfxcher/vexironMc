@@ -15,6 +15,9 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.6.1")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("org.yaml:snakeyaml:2.3")
+
+    implementation("com.zaxxer:HikariCP:6.2.1")
+    implementation("org.postgresql:postgresql:42.7.12")
 }
 
 tasks {
