@@ -28,21 +28,21 @@ public final class DatabaseProvider {
              Statement stmt = conn.createStatement()) {
 
             stmt.execute("""
-                CREATE TABLE IF NOT EXISTS players (
-                    uuid VARCHAR(36) PRIMARY KEY,
-                    username VARCHAR(16) NOT NULL,
-                    first_join BIGINT NOT NULL,
-                    last_join BIGINT NOT NULL,
-                    playtime BIGINT DEFAULT 0
-                )
-            """);
+            CREATE TABLE IF NOT EXISTS players (
+                uuid UUID PRIMARY KEY,
+                username VARCHAR(16) NOT NULL,
+                first_join BIGINT NOT NULL,
+                last_join BIGINT NOT NULL,
+                playtime BIGINT DEFAULT 0
+            )
+        """);
 
             stmt.execute("""
-                CREATE TABLE IF NOT EXISTS ranks (
-                    uuid VARCHAR(36) PRIMARY KEY,
-                    rank VARCHAR(32) NOT NULL
-                )
-            """);
+            CREATE TABLE IF NOT EXISTS ranks (
+                uuid UUID PRIMARY KEY,
+                rank VARCHAR(32) NOT NULL
+            )
+        """);
 
             LOGGER.info("Database tables ready");
 

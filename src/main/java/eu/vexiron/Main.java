@@ -5,6 +5,7 @@ import eu.vexiron.config.Config;
 import eu.vexiron.config.ConfigProvider;
 import eu.vexiron.database.DatabaseProvider;
 import eu.vexiron.listener.ListenerProvider;
+import eu.vexiron.profile.ProfileProvider;
 import eu.vexiron.rank.RankProvider;
 import eu.vexiron.server.Motd;
 import eu.vexiron.server.Settings;
@@ -25,10 +26,11 @@ public final class Main {
 
         DatabaseProvider database = new DatabaseProvider(config);
         InstanceProvider instances = new InstanceProvider();
-        RankProvider ranks = new RankProvider();
+        RankProvider ranks = new RankProvider(database.get());
+        ProfileProvider profiles = new ProfileProvider(database.get());
 
         new ListenerProvider(instances, ranks);
-        new CommandProvider(instances, ranks);
+        new CommandProvider(instances, ranks, profiles);
         new Motd(config);
 
         server.start(config.host, config.port);

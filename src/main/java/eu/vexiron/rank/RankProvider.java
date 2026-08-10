@@ -1,20 +1,14 @@
 package eu.vexiron.rank;
 
-import java.nio.file.Path;
+import eu.vexiron.database.Database;
 
 public final class RankProvider {
 
     private final RankManager manager;
-    private final RankFileWatcher watcher;
 
-    public RankProvider() {
-        Path file = Path.of("data", "ranks.json");
-        RankStorage storage = new JsonRankStorage(file);
+    public RankProvider(Database database) {
+        RankStorage storage = new PostgresRankStorage(database);
         this.manager = new RankManager(storage);
-
-        this.watcher = new RankFileWatcher(manager, file);
-        this.watcher.start();
-
         new RankListener(manager);
     }
 

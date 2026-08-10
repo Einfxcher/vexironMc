@@ -31,11 +31,11 @@ No Bukkit, no Spigot — built from scratch for full technical control and a uni
 - [x] Base server setup (MOTD, tab, world, settings)
 - [x] Commands framework
 - [x] Permission system
-- [x] Configuration File
-- [ ] Database integration
+- [x] Configuration file
+- [x] Database integration
 
 ### Player Systems
-- [ ] Player profiles
+- [x] Player profiles
 - [x] Rank system
 - [ ] Economy
 - [ ] Cosmetics

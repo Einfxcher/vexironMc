@@ -15,7 +15,7 @@ public class RankCommand extends Command {
     public RankCommand(RankManager ranks) {
         super("rank");
 
-        setCondition((sender, cmd) -> ranks.hasRank(sender, Rank.ADMIN));
+        setCondition((sender, cmd) -> ranks.hasRank(sender, Rank.PLAYER));
 
         ArgumentWord playerArg = ArgumentType.Word("player");
         ArgumentEnum<Rank> rankArg = ArgumentType.Enum("rank", Rank.class)
