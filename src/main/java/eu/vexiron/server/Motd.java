@@ -1,5 +1,6 @@
 package eu.vexiron.server;
 
+import eu.vexiron.config.Config;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -9,9 +10,9 @@ import net.minestom.server.ping.Status;
 
 public final class Motd {
 
-    private static final int MAX_PLAYERS = 2026;
+    public Motd(Config config) {
+        int maxPlayers = config.maxPlayers;
 
-    public Motd() {
         MinecraftServer.getGlobalEventHandler().addListener(
                 ServerListPingEvent.class,
                 event -> {
@@ -29,7 +30,7 @@ public final class Motd {
                             .description(description)
                             .playerInfo(Status.PlayerInfo.builder()
                                     .onlinePlayers(online)
-                                    .maxPlayers(MAX_PLAYERS)
+                                    .maxPlayers(maxPlayers)
                                     .build())
                             .build());
                 }

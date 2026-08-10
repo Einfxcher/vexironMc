@@ -1,6 +1,8 @@
 package eu.vexiron;
 
 import eu.vexiron.command.CommandProvider;
+import eu.vexiron.config.Config;
+import eu.vexiron.config.ConfigProvider;
 import eu.vexiron.listener.ListenerProvider;
 import eu.vexiron.rank.RankProvider;
 import eu.vexiron.server.Motd;
@@ -12,18 +14,22 @@ import net.minestom.server.MinecraftServer;
 public final class Main {
 
     static void main() {
-        MinecraftServer server = MinecraftServer.init(new Auth.Online());
-        MinecraftServer.setBrandName("Vexiron");
 
-        Settings.setDataSaving(false);
+        ConfigProvider configProvider = new ConfigProvider();
+        Config config = configProvider.get();
+
+        MinecraftServer server = MinecraftServer.init(new Auth.Online());
+        MinecraftServer.setBrandName(config.brand);
+
+        Settings.setDataSaving(config.dataSaving);
 
         InstanceProvider instances = new InstanceProvider();
         RankProvider ranks = new RankProvider();
 
         new ListenerProvider(instances, ranks);
         new CommandProvider(instances, ranks);
-        new Motd();
+        new Motd(config);
 
-        server.start("0.0.0.0", 25565);
+        server.start(config.host, config.port);
     }
 }

@@ -31,6 +31,7 @@ No Bukkit, no Spigot — built from scratch for full technical control and a uni
 - [x] Base server setup (MOTD, tab, world, settings)
 - [x] Commands framework
 - [x] Permission system
+- [x] Configuration File
 - [ ] Database integration
 
 ### Player Systems

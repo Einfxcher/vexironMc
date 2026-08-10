@@ -14,6 +14,7 @@ dependencies {
     implementation("net.minestom:minestom:2026.08.07-26.2")
     implementation("ch.qos.logback:logback-classic:1.6.1")
     implementation("com.google.code.gson:gson:2.11.0")
+    implementation("org.yaml:snakeyaml:2.3")
 }
 
 tasks {
