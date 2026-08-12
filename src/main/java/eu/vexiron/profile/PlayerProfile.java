@@ -34,16 +34,10 @@ public final class PlayerProfile {
     public void setUsername(String username) { this.username = username; }
     public void setLastJoin(long lastJoin) { this.lastJoin = lastJoin; }
 
-    /**
-     * Called when the player joins. Starts the session timer.
-     */
     public void startSession() {
         this.sessionStart = System.currentTimeMillis();
     }
 
-    /**
-     * Called when the player leaves. Adds session time to total playtime.
-     */
     public void endSession() {
         if (sessionStart > 0) {
             playtime += (System.currentTimeMillis() - sessionStart) / 1000;

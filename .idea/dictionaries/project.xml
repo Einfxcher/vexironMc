@@ -3,6 +3,7 @@
     <words>
       <w>Motd</w>
       <w>gamemode</w>
+      <w>jdbc</w>
       <w>vexiron</w>
     </words>
   </dictionary>

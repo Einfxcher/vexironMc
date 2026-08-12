@@ -10,13 +10,13 @@ public class HubCommand extends Command {
     public HubCommand(InstanceProvider instances) {
         super("hub");
 
-        setDefaultExecutor((sender, _) -> {
+        setDefaultExecutor((sender, context) -> {
             if (!(sender instanceof Player player)) {
                 Feedback.error(sender, "Only players can use this command.");
                 return;
             }
 
-            player.teleport(InstanceProvider.HUB_SPAWN);
+            player.setInstance(instances.hub(), InstanceProvider.HUB_SPAWN);
             Feedback.success(player, "Teleported to the hub.");
         });
     }

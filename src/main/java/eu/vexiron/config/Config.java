@@ -6,7 +6,7 @@ public final class Config {
     public String host = "0.0.0.0";
     public int port = 25565;
     public String brand = "Vexiron";
-    public int maxPlayers = 200;
+    public int maxPlayers = 2026;
 
     // Database
     public Database database = new Database();

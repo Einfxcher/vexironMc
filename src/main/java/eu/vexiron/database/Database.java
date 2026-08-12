@@ -31,11 +31,4 @@ public final class Database {
     public Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
-
-    public void close() {
-        if (dataSource != null && !dataSource.isClosed()) {
-            dataSource.close();
-            LOGGER.info("Database connection pool closed");
-        }
-    }
 }

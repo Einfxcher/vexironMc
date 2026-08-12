@@ -4,6 +4,8 @@ import eu.vexiron.command.CommandProvider;
 import eu.vexiron.config.Config;
 import eu.vexiron.config.ConfigProvider;
 import eu.vexiron.database.DatabaseProvider;
+import eu.vexiron.gui.IslandSelectionGUI;
+import eu.vexiron.island.IslandProvider;
 import eu.vexiron.listener.ListenerProvider;
 import eu.vexiron.profile.ProfileProvider;
 import eu.vexiron.rank.RankProvider;
@@ -28,10 +30,17 @@ public final class Main {
         InstanceProvider instances = new InstanceProvider();
         RankProvider ranks = new RankProvider(database.get());
         ProfileProvider profiles = new ProfileProvider(database.get());
+        IslandProvider islands = new IslandProvider(database.get());
+        IslandSelectionGUI selectionGUI = new IslandSelectionGUI(islands);
 
         new ListenerProvider(instances, ranks);
-        new CommandProvider(instances, ranks, profiles);
+        new CommandProvider(instances, ranks, profiles, islands, selectionGUI);
         new Motd(config);
+
+        // Graceful shutdown
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            islands.manager().shutdown();
+        }));
 
         server.start(config.host, config.port);
     }
